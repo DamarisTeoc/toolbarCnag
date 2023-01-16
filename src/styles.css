@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,600&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background-color: #FFFFFF;
+}
+nav{
+  background-color: #3C6E71;
+	max-width: auto;
+	margin: auto;
+	font-size: 20px;
+	margin-top: 1px;
+}
+.menu-horizontal{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  
+}
+.menu-horizontal > li > a{
+	display: block;
+	padding: 15px 20px;
+	color: white;
+	text-decoration: none;
+}
+
+.menu-vertical{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 200px;
+}
+
+.menu-horizontal li:hover .menu-vertical{
+  display: block;
+  background-color: #3C6E71;
+}
+.menu-vertical li:hover{
+  background-color: #3C6E71;
+}
+
+.menu-vertical li a{
+	display: block;
+	color: green;
+	text-decoration: none;
+	padding: 15px 15px 15px 20px;
+}
+
+.header .menu-horizontal a{
+  font-size: 700;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+h2{
+  font-weight: bold;
+  font-size: 20px
+}
+.switch {
+  background-color: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  ouline: none; 
+}
+
+
