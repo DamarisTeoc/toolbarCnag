@@ -32,39 +32,173 @@ fetchPatientsJSON()
         let date = patients.pacientes[i].fecha;
         let hour = patients.pacientes[i].hora;
 
-        if (type === "Long read analysis" || type === "DNA analysis" || type === "3D genomics") {
-          const row = tbody.insertRow();
-          const cell1 = row.insertCell();
-          cell1.innerText = name;
-          const cell2 = row.insertCell();
-          cell2.innerText = type;
-          const cell3 = row.insertCell();
-          cell3.innerText = date;
-          const cell4 = row.insertCell();
-          cell4.innerText = hour;
-        }
+        const row = tbody.insertRow();
+        const cell1 = row.insertCell();
+        cell1.innerText = name;
+        const cell2 = row.insertCell();
+        cell2.innerText = type;
+        const cell3 = row.insertCell();
+        cell3.innerText = date;
+        const cell4 = row.insertCell();
+        cell4.innerText = hour;
     }
-  for (let i = 0; i < patients.pacientes.length; i++){
-      let date = new Date(patients.pacientes[i].fecha);
-      let today = new Date();
-      if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
-          let name = patients.pacientes[i].nombre;
-          let type = patients.pacientes[i].tipo;
-          let date = patients.pacientes[i].fecha;
-  
-          const row = tbody.insertRow();
-          const cell1 = row.insertCell();
-          cell1.innerText = name;
-          const cell2 = row.insertCell();
-          cell2.innerText = type;
-          const cell3 = row.insertCell();
-          cell3.innerText = date;
-      }
-      if(date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() >= today.getDate() - 7) {
-      //filter by this week
-      }
-      if(date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth()) {
-      //filter by this month
-      }
-  }
   });
+
+  function filterDna() {
+    fetchPatientsJSON()
+    .then(patients => {
+        const tbody = document.querySelector("table tbody");
+        tbody.innerHTML = "";
+        for (let i = 0; i < patients.pacientes.length; i++) {
+            if (patients.pacientes[i].tipo === "DNA analysis") {
+                let name = patients.pacientes[i].nombre;
+                let type = patients.pacientes[i].tipo;
+                let date = patients.pacientes[i].fecha;
+                let hour = patients.pacientes[i].hora;
+
+                const row = tbody.insertRow();
+                const cell1 = row.insertCell();
+                cell1.innerText = name;
+                const cell2 = row.insertCell();
+                cell2.innerText = type;
+                const cell3 = row.insertCell();
+                cell3.innerText = date;
+                const cell4 = row.insertCell();
+                cell4.innerText = hour;
+            }
+        }
+    });
+}
+
+function filterLong() {
+  fetchPatientsJSON()
+  .then(patients => {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      for (let i = 0; i < patients.pacientes.length; i++) {
+          if (patients.pacientes[i].tipo === "Long read analysis") {
+              let name = patients.pacientes[i].nombre;
+              let type = patients.pacientes[i].tipo;
+              let date = patients.pacientes[i].fecha;
+              let hour = patients.pacientes[i].hora;
+
+              const row = tbody.insertRow();
+              const cell1 = row.insertCell();
+              cell1.innerText = name;
+              const cell2 = row.insertCell();
+              cell2.innerText = type;
+              const cell3 = row.insertCell();
+              cell3.innerText = date;
+              const cell4 = row.insertCell();
+              cell4.innerText = hour;
+          }
+      }
+  });
+}
+function filterGenomics() {
+  fetchPatientsJSON()
+  .then(patients => {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      for (let i = 0; i < patients.pacientes.length; i++) {
+          if (patients.pacientes[i].tipo === "3D genomics") {
+              let name = patients.pacientes[i].nombre;
+              let type = patients.pacientes[i].tipo;
+              let date = patients.pacientes[i].fecha;
+              let hour = patients.pacientes[i].hora;
+
+              const row = tbody.insertRow();
+              const cell1 = row.insertCell();
+              cell1.innerText = name;
+              const cell2 = row.insertCell();
+              cell2.innerText = type;
+              const cell3 = row.insertCell();
+              cell3.innerText = date;
+              const cell4 = row.insertCell();
+              cell4.innerText = hour;
+          }
+      }
+  });
+}
+function filterToday() {
+  fetchPatientsJSON()
+  .then(patients => {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      const today = new Date();
+      for (let i = 0; i < patients.pacientes.length; i++) {
+        let date = new Date(patients.pacientes[i].fecha);
+        if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
+              let name = patients.pacientes[i].nombre;
+              let type = patients.pacientes[i].tipo;
+              let date = patients.pacientes[i].fecha;
+              let hour = patients.pacientes[i].hora;
+
+              const row = tbody.insertRow();
+              const cell1 = row.insertCell();
+              cell1.innerText = name;
+              const cell2 = row.insertCell();
+              cell2.innerText = type;
+              const cell3 = row.insertCell();
+              cell3.innerText = date;
+              const cell4 = row.insertCell();
+              cell4.innerText = hour;
+          }
+      }
+  });
+}
+function filterWeek() {
+  fetchPatientsJSON()
+  .then(patients => {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      const today = new Date();
+      const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+      for (let i = 0; i < patients.pacientes.length; i++) {
+          let date = new Date(patients.pacientes[i].fecha);
+          if (date >= oneWeekAgo && date <= today) {
+              let name = patients.pacientes[i].nombre;
+              let type = patients.pacientes[i].tipo;
+              let date = patients.pacientes[i].fecha;
+              let hour = patients.pacientes[i].hora;
+
+              const row = tbody.insertRow();
+              const cell1 = row.insertCell();
+              cell1.innerText = name;
+              const cell2 = row.insertCell();
+              cell2.innerText = type;
+              const cell3 = row.insertCell();
+              cell3.innerText = date;
+              const cell4 = row.insertCell();
+              cell4.innerText = hour;
+          }
+      }
+  });
+}
+function filterMonth() {
+  fetchPatientsJSON()
+  .then(patients => {
+      const tbody = document.querySelector("table tbody");
+      tbody.innerHTML = "";
+      const today = new Date();
+      for (let i = 0; i < patients.pacientes.length; i++) {
+          let date = new Date(patients.pacientes[i].fecha);
+          if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth()) {
+              let name = patients.pacientes[i].nombre;
+              let type = patients.pacientes[i].tipo;
+              let date = patients.pacientes[i].fecha;
+              let hour = patients.pacientes[i].hora;
+
+              const row = tbody.insertRow();
+              const cell1 = row.insertCell();
+              cell1.innerText = name;
+              const cell2 = row.insertCell();
+              cell2.innerText = type;
+              const cell3 = row.insertCell();
+              cell3.innerText = date;
+              const cell4 = row.insertCell();
+              cell4.innerText = hour;
+          }
+      }
+  });
+}
