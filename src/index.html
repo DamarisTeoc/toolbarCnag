@@ -54,17 +54,19 @@
 
     <section id="add-patients">
       <h2>Add patient</h2>
-    <div id="add-patients-form" class="add-patients-form">
-      <div class="add-inputs">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
-        <label for="category">Category</label>
-        <input type="text" name="category" id="category" required>
-        <label for="date">Date</label>
-        <input type="date" name="date" id="date" required>
-      </div>
-      <button id="add-patients" class="add-patients" active="false">Add patient</button>
-    </div>
+        <div class="add-patients-form">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required>
+          <label for="type">Type</label>
+            <select name="types" id="type">
+              <option value="dna">DNA analysis</option>
+              <option value="long">Long read analysis</option>
+              <option value="genomics">3D genomics</option>
+            </select>
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date" required>
+          <button id="add-patients" class="add-patients" active="false">Add patient</button>
+        </div>
     </section>
     
   </main>

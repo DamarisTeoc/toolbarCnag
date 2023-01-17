@@ -49,6 +49,7 @@ nav{
   background-color: #3C6E71;
 	text-decoration: none;
 	padding:5px;
+  font-family: "Poppins";
 }
 
 .header .menu-horizontal a{
@@ -60,21 +61,13 @@ h2{
   font-weight: bold;
   font-size: 20px
 }
-.switch {
-  background-color: #343D5B;
-  border-radius: 100px;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  ouline: none; 
-}
 
 table.list {
   margin: 0 auto;
   width: 80%; 
   border-collapse: collapse; 
   margin-top: 25px;
+  border-radius: 50px;
 }
 
 table.list thead th {
@@ -99,4 +92,41 @@ table.list caption {
   font-weight: bold;
   margin-bottom: 16px; 
   text-align: center; 
+}
+
+#add-patients {
+  text-align: center;
+}
+
+#add-patients h2 {
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+
+.add-patients-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-patients-form  label {
+  margin-right: 10px;
+}
+
+.add-patients-form input, select {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #3C6E71;
+}
+
+.add-patients-form  button {
+  padding: 10px 20px;
+  background-color: #3C6E71;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
