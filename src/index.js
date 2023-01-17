@@ -22,15 +22,12 @@ fetchPatientsJSON()
     th2.innerText = "Type";
     const th3 = tr.insertCell();
     th3.innerText = "Date";
-    const th4 = tr.insertCell();
-    th4.innerText = "Hour";
     const tbody = table.createTBody();
     for (let i = 0; i < patients.pacientes.length; i++){
         
         let name = patients.pacientes[i].nombre;
         let type = patients.pacientes[i].tipo;
         let date = patients.pacientes[i].fecha;
-        let hour = patients.pacientes[i].hora;
 
         const row = tbody.insertRow();
         const cell1 = row.insertCell();
@@ -39,8 +36,6 @@ fetchPatientsJSON()
         cell2.innerText = type;
         const cell3 = row.insertCell();
         cell3.innerText = date;
-        const cell4 = row.insertCell();
-        cell4.innerText = hour;
     }
   });
 
@@ -54,7 +49,6 @@ fetchPatientsJSON()
                 let name = patients.pacientes[i].nombre;
                 let type = patients.pacientes[i].tipo;
                 let date = patients.pacientes[i].fecha;
-                let hour = patients.pacientes[i].hora;
 
                 const row = tbody.insertRow();
                 const cell1 = row.insertCell();
@@ -63,8 +57,6 @@ fetchPatientsJSON()
                 cell2.innerText = type;
                 const cell3 = row.insertCell();
                 cell3.innerText = date;
-                const cell4 = row.insertCell();
-                cell4.innerText = hour;
             }
         }
     });
@@ -80,7 +72,6 @@ function filterLong() {
               let name = patients.pacientes[i].nombre;
               let type = patients.pacientes[i].tipo;
               let date = patients.pacientes[i].fecha;
-              let hour = patients.pacientes[i].hora;
 
               const row = tbody.insertRow();
               const cell1 = row.insertCell();
@@ -89,8 +80,6 @@ function filterLong() {
               cell2.innerText = type;
               const cell3 = row.insertCell();
               cell3.innerText = date;
-              const cell4 = row.insertCell();
-              cell4.innerText = hour;
           }
       }
   });
@@ -105,7 +94,6 @@ function filterGenomics() {
               let name = patients.pacientes[i].nombre;
               let type = patients.pacientes[i].tipo;
               let date = patients.pacientes[i].fecha;
-              let hour = patients.pacientes[i].hora;
 
               const row = tbody.insertRow();
               const cell1 = row.insertCell();
@@ -114,8 +102,6 @@ function filterGenomics() {
               cell2.innerText = type;
               const cell3 = row.insertCell();
               cell3.innerText = date;
-              const cell4 = row.insertCell();
-              cell4.innerText = hour;
           }
       }
   });
@@ -132,7 +118,6 @@ function filterToday() {
               let name = patients.pacientes[i].nombre;
               let type = patients.pacientes[i].tipo;
               let date = patients.pacientes[i].fecha;
-              let hour = patients.pacientes[i].hora;
 
               const row = tbody.insertRow();
               const cell1 = row.insertCell();
@@ -141,8 +126,6 @@ function filterToday() {
               cell2.innerText = type;
               const cell3 = row.insertCell();
               cell3.innerText = date;
-              const cell4 = row.insertCell();
-              cell4.innerText = hour;
           }
       }
   });
@@ -160,7 +143,6 @@ function filterWeek() {
               let name = patients.pacientes[i].nombre;
               let type = patients.pacientes[i].tipo;
               let date = patients.pacientes[i].fecha;
-              let hour = patients.pacientes[i].hora;
 
               const row = tbody.insertRow();
               const cell1 = row.insertCell();
@@ -170,7 +152,6 @@ function filterWeek() {
               const cell3 = row.insertCell();
               cell3.innerText = date;
               const cell4 = row.insertCell();
-              cell4.innerText = hour;
           }
       }
   });
@@ -187,7 +168,6 @@ function filterMonth() {
               let name = patients.pacientes[i].nombre;
               let type = patients.pacientes[i].tipo;
               let date = patients.pacientes[i].fecha;
-              let hour = patients.pacientes[i].hora;
 
               const row = tbody.insertRow();
               const cell1 = row.insertCell();
@@ -196,9 +176,39 @@ function filterMonth() {
               cell2.innerText = type;
               const cell3 = row.insertCell();
               cell3.innerText = date;
-              const cell4 = row.insertCell();
-              cell4.innerText = hour;
           }
       }
   });
 }
+
+/*const addPatientsButton = document.getElementById("add-patients");
+let newPatient;
+addPatientsButton.addEventListener("click", function(){
+    const name = document.getElementById("name").value;
+    const type = document.getElementById("type").value;
+    const date = document.getElementById("date").value;
+    const newPatient = {nombre: name, tipo: type, fecha: date};
+    fetchPatientsJSON()
+    .then(patients => {
+        patients.pacientes.push(newPatient);
+        updateTable(patients);
+    });
+});
+
+function updateTable(patients) {
+    const tbody = document.querySelector("table tbody");
+    tbody.innerHTML = "";
+    for (let i = 0; i < patients.pacientes.length; i++) {
+      let name = patients.pacientes[i].nombre;
+      let type = patients.pacientes[i].tipo;
+      let date = patients.pacientes[i].fecha;
+
+      const row = tbody.insertRow();
+      const cell1 = row.insertCell();
+      cell1.innerText = name;
+      const cell2 = row.insertCell();
+      cell2.innerText = type;
+      const cell3 = row.insertCell();
+      cell3.innerText = date;
+  }
+}*/

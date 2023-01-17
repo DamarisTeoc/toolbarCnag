@@ -25,43 +25,37 @@
       "id": 4,
       "nombre": "Damaris",
       "tipo": "Long read analysis",
-      "fecha": "01/29/2023",
-      "hora": "10:00"
+      "fecha": "01/29/2023"
     },
     {
       "id": 5,
       "nombre": "Maria",
       "tipo": "DNA analysis",
-      "fecha": "02/14/2023",
-      "hora": "09:00"
+      "fecha": "02/14/2023"
     },
     {
       "id": 6,
       "nombre": "Sky",
       "tipo": "3D genomics",
-      "fecha": "02/04/2023",
-      "hora": "11:00"
+      "fecha": "02/04/2023"
     },
     {
       "id": 7,
       "nombre": "Alex",
       "tipo": "DNA analysis",
-      "fecha": "03/22/2023",
-      "hora": "10:00"
+      "fecha": "03/22/2023"
     },
     {
       "id": 8,
       "nombre": "Uri",
       "tipo": "Long read analysis",
-      "fecha": "02/27/2023",
-      "hora": "17:00"
+      "fecha": "02/27/2023"
     },
     {
       "id": 9,
       "nombre": "Karem",
       "tipo": "Long read analysis",
-      "fecha": "01/18/2023",
-      "hora": "17:00"
+      "fecha": "01/18/2023"
     }
   ]
 }
