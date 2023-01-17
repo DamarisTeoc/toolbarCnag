@@ -14,13 +14,13 @@ nav{
 	max-width: auto;
 	margin: auto;
 	font-size: 20px;
-	margin-top: 1px;
+	margin-top: 0px;
 }
+
 .menu-horizontal{
     list-style: none;
     display: flex;
     justify-content: space-around;
-  
 }
 .menu-horizontal > li > a{
 	display: block;
@@ -38,9 +38,6 @@ nav{
 
 .menu-horizontal li:hover .menu-vertical{
   display: block;
-  background-color: #3C6E71;
-}
-.menu-vertical li:hover{
   background-color: #3C6E71;
 }
 
@@ -62,7 +59,7 @@ h2{
 }
 .switch {
   background-color: #343D5B;
-  border-radius: 1000px;
+  border-radius: 100px;
   border: none;
   position: relative;
   cursor: pointer;
@@ -70,4 +67,33 @@ h2{
   ouline: none; 
 }
 
+table.list {
+  margin: 0 auto;
+  width: 80%; 
+  border-collapse: collapse; 
+  margin-top: 25px;
+}
 
+table.list thead th {
+  background-color: #333; 
+  color: #fff; 
+  font-weight: bold; 
+  padding: 8px;
+}
+
+table.list td, table.list th {
+  border: 1px solid #A1CCCE; 
+  padding: 8px; 
+  text-align: left; 
+
+}
+table.list thead{
+  font-weight: bold; 
+}
+
+table.list caption {
+  font-size: larger; 
+  font-weight: bold;
+  margin-bottom: 16px; 
+  text-align: center; 
+}
