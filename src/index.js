@@ -5,7 +5,19 @@ async function fetchPatientsJSON(){
     const patients = await response.json();
     return patients;
 }
+function showPatients(patients, i, tbody){
+    let name = patients.pacientes[i].nombre;
+    let type = patients.pacientes[i].tipo;
+    let date = patients.pacientes[i].fecha;
 
+    const row = tbody.insertRow();
+    const cell1 = row.insertCell();
+    cell1.innerText = name;
+    const cell2 = row.insertCell();
+    cell2.innerText = type;
+    const cell3 = row.insertCell();
+    cell3.innerText = date;
+}
 fetchPatientsJSON()
 .then(patients => {
   console.log(patients);
@@ -25,17 +37,7 @@ fetchPatientsJSON()
     const tbody = table.createTBody();
     for (let i = 0; i < patients.pacientes.length; i++){
         
-        let name = patients.pacientes[i].nombre;
-        let type = patients.pacientes[i].tipo;
-        let date = patients.pacientes[i].fecha;
-
-        const row = tbody.insertRow();
-        const cell1 = row.insertCell();
-        cell1.innerText = name;
-        const cell2 = row.insertCell();
-        cell2.innerText = type;
-        const cell3 = row.insertCell();
-        cell3.innerText = date;
+        showList(patients, i, tbody);
     }
   });
 
@@ -46,17 +48,7 @@ fetchPatientsJSON()
         tbody.innerHTML = "";
         for (let i = 0; i < patients.pacientes.length; i++) {
             if (patients.pacientes[i].tipo === "DNA analysis") {
-                let name = patients.pacientes[i].nombre;
-                let type = patients.pacientes[i].tipo;
-                let date = patients.pacientes[i].fecha;
-
-                const row = tbody.insertRow();
-                const cell1 = row.insertCell();
-                cell1.innerText = name;
-                const cell2 = row.insertCell();
-                cell2.innerText = type;
-                const cell3 = row.insertCell();
-                cell3.innerText = date;
+                showList(patients, i, tbody);
             }
         }
     });
@@ -69,17 +61,7 @@ function filterLong() {
       tbody.innerHTML = "";
       for (let i = 0; i < patients.pacientes.length; i++) {
           if (patients.pacientes[i].tipo === "Long read analysis") {
-              let name = patients.pacientes[i].nombre;
-              let type = patients.pacientes[i].tipo;
-              let date = patients.pacientes[i].fecha;
-
-              const row = tbody.insertRow();
-              const cell1 = row.insertCell();
-              cell1.innerText = name;
-              const cell2 = row.insertCell();
-              cell2.innerText = type;
-              const cell3 = row.insertCell();
-              cell3.innerText = date;
+            showList(patients, i, tbody);
           }
       }
   });
@@ -91,17 +73,7 @@ function filterGenomics() {
       tbody.innerHTML = "";
       for (let i = 0; i < patients.pacientes.length; i++) {
           if (patients.pacientes[i].tipo === "3D genomics") {
-              let name = patients.pacientes[i].nombre;
-              let type = patients.pacientes[i].tipo;
-              let date = patients.pacientes[i].fecha;
-
-              const row = tbody.insertRow();
-              const cell1 = row.insertCell();
-              cell1.innerText = name;
-              const cell2 = row.insertCell();
-              cell2.innerText = type;
-              const cell3 = row.insertCell();
-              cell3.innerText = date;
+            showList(patients, i, tbody);
           }
       }
   });
@@ -115,17 +87,7 @@ function filterToday() {
       for (let i = 0; i < patients.pacientes.length; i++) {
         let date = new Date(patients.pacientes[i].fecha);
         if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate()) {
-              let name = patients.pacientes[i].nombre;
-              let type = patients.pacientes[i].tipo;
-              let date = patients.pacientes[i].fecha;
-
-              const row = tbody.insertRow();
-              const cell1 = row.insertCell();
-              cell1.innerText = name;
-              const cell2 = row.insertCell();
-              cell2.innerText = type;
-              const cell3 = row.insertCell();
-              cell3.innerText = date;
+            showList(patients, i, tbody);
           }
       }
   });
@@ -140,19 +102,7 @@ function filterWeek() {
       for (let i = 0; i < patients.pacientes.length; i++) {
           let date = new Date(patients.pacientes[i].fecha);
           if (date >= oneWeekAgo && date <= today) {
-              let name = patients.pacientes[i].nombre;
-              let type = patients.pacientes[i].tipo;
-              let date = patients.pacientes[i].fecha;
-
-              const row = tbody.insertRow();
-              const cell1 = row.insertCell();
-              cell1.innerText = name;
-              const cell2 = row.insertCell();
-              cell2.innerText = type;
-              const cell3 = row.insertCell();
-              cell3.innerText = date;
-              const cell4 = row.insertCell();
-          }
+            showList(patients, i, tbody);          }
       }
   });
 }
@@ -165,17 +115,7 @@ function filterMonth() {
       for (let i = 0; i < patients.pacientes.length; i++) {
           let date = new Date(patients.pacientes[i].fecha);
           if (date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth()) {
-              let name = patients.pacientes[i].nombre;
-              let type = patients.pacientes[i].tipo;
-              let date = patients.pacientes[i].fecha;
-
-              const row = tbody.insertRow();
-              const cell1 = row.insertCell();
-              cell1.innerText = name;
-              const cell2 = row.insertCell();
-              cell2.innerText = type;
-              const cell3 = row.insertCell();
-              cell3.innerText = date;
+            showList(patients, i, tbody);
           }
       }
   });
@@ -199,16 +139,6 @@ function updateTable(patients) {
     const tbody = document.querySelector("table tbody");
     tbody.innerHTML = "";
     for (let i = 0; i < patients.pacientes.length; i++) {
-      let name = patients.pacientes[i].nombre;
-      let type = patients.pacientes[i].tipo;
-      let date = patients.pacientes[i].fecha;
-
-      const row = tbody.insertRow();
-      const cell1 = row.insertCell();
-      cell1.innerText = name;
-      const cell2 = row.insertCell();
-      cell2.innerText = type;
-      const cell3 = row.insertCell();
-      cell3.innerText = date;
+      showPatients(patients, i, tbody);
   }
 }*/
